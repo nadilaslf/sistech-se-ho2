@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* pages/globals.css atau src/globals.css, tergantung di mana Anda menaruhnya */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* ketiga ini harus ada */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Urbanist", sans-serif;
+    min-height: 100vh;
+    align-items: center; 
+    justify-content: center; 
+    background-color: black;
+}
+
+.container {
+    @apply p-8;
+}
+
+h1, h2, h3, h4, h5, h6, p{
+    color: #fff;
+    margin: 0 !important;
+}
+
+p{
+    font-size: 1rem;
+    line-height: 1.9rem;
+}
+
+a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.page-center {
+    width: 96%;
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+
+.logo {
+    font-family: "Urbanist", sans-serif;
+    @apply font-bold text-4xl;
+}
+
+.color-hero{
+    color : rgb(115, 62, 164);
+}
+
+.button{
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+    padding-top: 0.625rem;
+    padding-bottom: 0.625rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    border-radius: 9999px;
+    width: 98%;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    background: rgb(115, 62, 164);
+    
+}
