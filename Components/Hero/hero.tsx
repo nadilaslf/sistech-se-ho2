@@ -2,21 +2,14 @@ import Image from "next/image";
 // import { Label } from "../Label";
 // import {Button} from "../Button";
 
-// type HeroProps = {
-//     onClick?: () => void;
-//     buttonLabel?: string;
-// }
 
 function Hero({
-//     onClick,
-//     buttonLabel,
+
 }
-// : HeroProps
 ) {
   return (
     <div className="page-center grid grid-cols-3 items-center md:pt-20 md:pb-20 pt-0 pb-6 ">
       <div className="grid col-span-2 gap-6 ">
-        {/* <Label label="Meet Mareta" /> */}
         <h1 className="text-6xl font-bold tracking-tight text-ink md:text-5xl lg:text-6xl dark:text-white my-2 mx-4">
           Aplikasi <span className="color-hero">Belajar Kuliah</span> Terlengkap di Indonesia
         </h1>

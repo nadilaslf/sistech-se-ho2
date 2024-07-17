@@ -1,4 +1,5 @@
-import {Navigation, Hero, FeatureContainer, Footer} from "../Components";
+import {Navigation, Hero, Footer} from "../Components";
+import FeatureContainer from '../Components/Feature/FeatureContainer';
 
 export default function Home(){
     return (

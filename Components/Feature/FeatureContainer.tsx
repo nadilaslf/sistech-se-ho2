@@ -1,38 +1,40 @@
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import { Feature } from "./Feature";
+import type { CardProps } from "../Card";
 
 function FeatureContainer() {
-  const router = useRouter();
+  const [data, setData] = useState<CardProps[]>([]);
 
-  const featureItems = [
-    {
-      banner: "/images/img-kelas.jpg",
-      title: "Kelas",
-      description:
-        "700+ video yang membahas konsep secara ringkas dan menyeluruh",
-      alt: "Kelas Illustration",
-      onClick: () => alert("Kelas Clicked"),
-    },
-    {
-      banner: "/images/bank-soal.jpg",
-      title: "Bank Soal",
-      description:
-        "Soal ujian asli dari berbagai universitas, beserta pembahasannya",
-      alt: "Bank Soal Illustration",
-      onClick: () => alert("Bank Soal Clicked"),
-    },
-    {
-      banner: "/images/promo.jpg",
-      title: "Promo",
-      description:
-        "Tersedia berbagai paket dengan materi yang lengkap",
-      alt: "Promo Illustration",
-      onClick: () => alert("Promo Clicked"),
-    },
-  ];
-  return <Feature 
-  featureItems = {featureItems} 
-  />;
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch('https://sistech-server.vercel.app/api/data'); 
+        const jsonData = await res.json();
+
+        const formattedData = jsonData.data.map((course: any) => ({
+          banner: course.imgUrl,
+          title: course.course,
+          description: course.description,
+          lecturers : course.lecturers,
+          alt: course.course,
+          topics: course.topics.map((topic: any) => ({
+            topicId: topic.topicId,
+            name: topic.name,
+            content: topic.content,
+          })),
+        }));
+
+        setData(formattedData);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  return <Feature featureItems={data} />;
 }
 
-export { FeatureContainer };
+
+export default FeatureContainer ;
